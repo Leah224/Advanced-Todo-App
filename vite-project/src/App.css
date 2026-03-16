@@ -1,33 +1,130 @@
-/* App.css */
+/* ============================= */
+/* Blue & White Bubbly Theme | Fullscreen + Responsive | Fixed Background */
+/* ============================= */
 
+/* 1️⃣ Reset and fullscreen root */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  background: #e0f7ff; /* light blue background */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* 2️⃣ App container */
 .app-container {
-  padding: 2rem;
-  font-family: sans-serif;
+  min-height: 100%; /* fill the parent (#root) */
+  width: 100%;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent; /* inherits from #root */
+  box-sizing: border-box;
 }
 
+/* 3️⃣ Header */
 .app-header {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #0077b6; /* dark blue */
+  text-align: center;
+  text-shadow: 1px 1px 4px #caf0f8;
 }
 
+/* 4️⃣ Input + Add button container */
 .input-container {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap; /* wrap on small screens */
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
 }
 
+/* 5️⃣ Input field */
 .task-input {
-  padding: 0.5rem;
-  width: 200px;
-  margin-right: 0.5rem;
+  flex: 1 1 150px;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  border: 2px solid #90e0ef;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  min-width: 120px;
 }
 
+.task-input:focus {
+  border-color: #0077b6;
+  box-shadow: 0 0 8px #90e0ef;
+}
+
+/* 6️⃣ Add button */
 .add-button {
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  border: none;
+  background: #0077b6;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
+.add-button:hover {
+  background: #0096c7;
+  transform: scale(1.05);
+}
+
+/* 7️⃣ Todo list */
 .todo-list {
   list-style: none;
   padding-left: 0;
+  width: 100%;
+  max-width: 400px;
 }
 
+/* 8️⃣ Todo items */
 .todo-item {
-  margin-bottom: 0.5rem;
+  background: #caf0f8;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 20px;
+  color: #023e8a;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+
+.todo-item:hover {
+  transform: scale(1.02);
+}
+
+/* 9️⃣ Responsive tweaks for small screens */
+@media (max-width: 480px) {
+  .app-header {
+    font-size: 1.5rem;
+  }
+
+  .task-input {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .add-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .todo-item {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
 }
