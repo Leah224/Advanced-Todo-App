@@ -25,7 +25,7 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: transparent; /* inherits from #root */
+  background: transparent;
   box-sizing: border-box;
 }
 
@@ -33,7 +33,7 @@ html, body, #root {
 .app-header {
   margin-bottom: 2rem;
   font-size: 2rem;
-  color: #0077b6; /* dark blue */
+  color: #0077b6;
   text-align: center;
   text-shadow: 1px 1px 4px #caf0f8;
 }
@@ -42,7 +42,7 @@ html, body, #root {
 .input-container {
   margin-bottom: 2rem;
   display: flex;
-  flex-wrap: wrap; /* wrap on small screens */
+  flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
   width: 100%;
@@ -100,6 +100,9 @@ html, body, #root {
   color: #023e8a;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   transition: transform 0.2s;
 }
 
@@ -107,7 +110,25 @@ html, body, #root {
   transform: scale(1.02);
 }
 
-/* 9️⃣ Responsive tweaks for small screens */
+/* 9️⃣ Delete button inside todo items */
+.delete-button {
+  margin-left: 1rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  border: none;
+  background: #031b3b; 
+  color: white;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  background: #031b3b;
+  transform: scale(1.1);
+}
+
+/* 🔟 Responsive tweaks for small screens */
 @media (max-width: 480px) {
   .app-header {
     font-size: 1.5rem;
@@ -126,5 +147,10 @@ html, body, #root {
   .todo-item {
     font-size: 0.9rem;
     padding: 0.6rem 0.8rem;
+  }
+
+  .delete-button {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
   }
 }

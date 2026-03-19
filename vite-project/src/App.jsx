@@ -19,6 +19,16 @@ function App() {
     }
   }
 
+
+  function handleDeleteTodo(index) {
+  const removeTodos = todos.filter((item, i) => {
+    return i !== index;
+    
+  });
+setTodos(removeTodos);
+
+}
+
   return (
     <div className="app-container">
       <h1 className="app-header">Todo App</h1>
@@ -42,6 +52,7 @@ function App() {
         {todos.map((todo, index) => (
           <li key={index} className="todo-item">
             {todo}
+            <button className="delete-button" onClick={() => handleDeleteTodo(index)}>Delete</button>
           </li>
         ))}
       </ul>
