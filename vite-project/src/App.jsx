@@ -13,9 +13,9 @@ function App() {
   // Function to add a new todo
   function handleAddTodo() {
     if (input.trim().length > 0) {
-      const newTodos = [...todos, input]; // Create new array
-      setTodos(newTodos); // Update state
-      setInput(""); // Clear input field
+    const newTodos = [...todos, { text: input.trim(), completed: false }];
+    setTodos(newTodos); // Update state
+    setInput(""); // Clear input field
     }
   }
 
@@ -56,7 +56,7 @@ setTodos(removeTodos);
       <ul className="todo-list">
         {todos.map((todo, index) => (
           <li key={index} className="todo-item">
-            {todo}
+            {todo.text}
             <button className="delete-button" onClick={() => handleDeleteTodo(index)}>Delete</button>
           </li>
         ))}
