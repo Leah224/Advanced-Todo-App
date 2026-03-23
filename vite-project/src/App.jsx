@@ -5,14 +5,14 @@ function App() {
   // Setup state
   const [input, setInput] = useState(""); // For user input
   const [todos, setTodos] = useState([
-    "study",
-    "workout",
-    "read",
+    { text: "study", completed: false },
+    { text: "workout", completed: false },
+    { text: "read", completed: false },
   ]); // Fake todos for display
 
   // Function to add a new todo
   function handleAddTodo() {
-    if (input.length > 0) {
+    if (input.trim().length > 0) {
       const newTodos = [...todos, input]; // Create new array
       setTodos(newTodos); // Update state
       setInput(""); // Clear input field
@@ -39,8 +39,13 @@ setTodos(removeTodos);
           type="text"
           value={input}
           placeholder="type a task..."
-          onChange={(e) => setInput(e.target.value)}
           className="task-input"
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              handleAddTodo();
+            }
+          }}
         />
         <button className="add-button" onClick={handleAddTodo}>
           Add
