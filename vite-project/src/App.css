@@ -12,14 +12,14 @@
 html, body, #root {
   height: 100%;
   width: 100%;
-  background: #e0f7ff; /* light blue background */
+  background: #e0f7ff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
 }
 
 /* 2️⃣ App container */
 .app-container {
-  min-height: 100%; /* fill the parent (#root) */
+  min-height: 100%;
   width: 100%;
   padding: 2rem 1rem;
   display: flex;
@@ -38,7 +38,7 @@ html, body, #root {
   text-shadow: 1px 1px 4px #caf0f8;
 }
 
-/* 4️⃣ Input + Add button container */
+/* 4️⃣ Input container */
 .input-container {
   margin-bottom: 2rem;
   display: flex;
@@ -49,7 +49,7 @@ html, body, #root {
   max-width: 400px;
 }
 
-/* 5️⃣ Input field */
+/* 5️⃣ Input */
 .task-input {
   flex: 1 1 150px;
   padding: 0.7rem 1rem;
@@ -83,7 +83,12 @@ html, body, #root {
   transform: scale(1.05);
 }
 
-/* 7️⃣ Todo list */
+/* 7️⃣ Filter buttons (optional improvement) */
+.filter-container {
+  margin-bottom: 1rem;
+}
+
+/* 8️⃣ Todo list */
 .todo-list {
   list-style: none;
   padding-left: 0;
@@ -91,7 +96,7 @@ html, body, #root {
   max-width: 400px;
 }
 
-/* 8️⃣ Todo items */
+/* 9️⃣ Todo item */
 .todo-item {
   background: #caf0f8;
   padding: 0.8rem 1rem;
@@ -103,20 +108,43 @@ html, body, #root {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.2s;
+  gap: 1rem;
+  transition: all 0.2s ease;
+  cursor: grab;
 }
 
 .todo-item:hover {
   transform: scale(1.02);
 }
 
-/* 9️⃣ Delete button inside todo items */
+.todo-item:active {
+  cursor: grabbing;
+  opacity: 0.7;
+}
+
+/* 🔟 Todo text */
+.todo-text {
+  flex: 1;
+  cursor: pointer;
+}
+
+/* ✅ COMPLETED STATE (whole item effect) */
+.todo-item.completed {
+  opacity: 0.4;
+  background: #dff6fb;
+}
+
+/* also strike text inside completed */
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+}
+
+/* 1️⃣1️⃣ Delete button */
 .delete-button {
-  margin-left: 1rem;
   padding: 0.3rem 0.7rem;
   border-radius: 20px;
   border: none;
-  background: #031b3b; 
+  background: #0077b6;
   color: white;
   font-size: 0.85rem;
   cursor: pointer;
@@ -128,7 +156,7 @@ html, body, #root {
   transform: scale(1.1);
 }
 
-/* 🔟 Responsive tweaks for small screens */
+/* 1️⃣2️⃣ Responsive */
 @media (max-width: 480px) {
   .app-header {
     font-size: 1.5rem;
@@ -153,4 +181,36 @@ html, body, #root {
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
   }
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Complete button */
+.complete-button {
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  border: none;
+  background: #00b4d8;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.complete-button:hover {
+  background: #0096c7;
+  transform: scale(1.05);
+}
+
+/* Completed state (whole item fades + line-through text) */
+.todo-item.completed {
+  opacity: 0.4;
+  background: #dff6fb;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
 }
